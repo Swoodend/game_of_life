@@ -1,0 +1,19 @@
+.app {
+  height: 600px;
+  width: 600px;
+  margin: 0 auto;
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  height: 500px;
+  width: 500px;
+  outline: 1px solid black;
+}
+.cell {
+  height: 10px;
+  width: 10px;
+  outline: 1px solid black;
+}
