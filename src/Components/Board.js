@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Cell from './Cell';
+import getRandomState from '../helpers/boardlogic';
 
 class Board extends Component {
   constructor(props){
@@ -59,6 +60,13 @@ class Board extends Component {
         [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
       ]
     };
+  }
+
+  componentWillMount(){
+    let randomState = getRandomState(this.state.cellGrid);
+    this.setState({
+      cellGrid: randomState
+    });
   }
 
   changeColor(row, column){
