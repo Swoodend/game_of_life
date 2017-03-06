@@ -71,7 +71,13 @@ class Board extends Component {
 
   changeColor(row, column){
     let grid = this.state.cellGrid;
-    grid[row][column] = 1;
+
+    if (grid[row][column] === 1){
+      grid[row][column] = 0;
+    } else {
+      grid[row][column] = 1;
+    }
+
     this.setState({
       cellGrid: grid
     });
