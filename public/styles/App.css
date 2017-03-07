@@ -17,3 +17,13 @@
   width: 10px;
   outline: 1px solid black;
 }
+
+.start-button {
+  background: lightgreen;
+  height: 50px;
+  width: 70px;
+  color: white;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 50px;
+}
