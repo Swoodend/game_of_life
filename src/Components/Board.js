@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Cell from './Cell';
-import getRandomState from '../helpers/boardlogic';
+import { getRandomState, copyArr } from '../helpers/boardlogic';
 
 class Board extends Component {
   constructor(props){
@@ -80,6 +80,58 @@ class Board extends Component {
 
     this.setState({
       cellGrid: grid
+    });
+  }
+
+  tick(){
+    let board = this.state.cellGrid;
+    let boardCopy = copyArr(this.state.cellGrid);
+
+    for(let i = 1; i < board.length - 1; i++){
+      for (let j = 1; j < board[i].length - 1; j++){
+        //get value of all the neighbours of currentCell
+        let currentCell = board[i][j];
+        let topLeft = board[i-1][j-1];
+        let above = board[i-1][j];
+        let topRight = board[i-1][j+1];
+        let left = board[i][j-1];
+        let right = board[i][j+1];
+        let bottomLeft = board[i+1][j-1];
+        let bottom = board[i+1][j];
+        let bottomRight = board[i+1][j+1];
+
+        //add them up
+        let totalNeighbours = [
+          topLeft, above, topRight,
+          left, right, bottomLeft,
+          bottom, bottomRight
+        ].reduce((a, b) =>{
+          return a + b;
+        });
+
+        console.log('currentCell', i,j);
+        console.log('totalNeighbours', totalNeighbours);
+
+        //implement logic
+        if (currentCell === 1){ //if the currentCell is alive
+          if (totalNeighbours < 2){
+            boardCopy[i][j] = 0; //die from isolation
+          }
+
+          if (totalNeighbours > 3) {
+            boardCopy[i][j] = 0; //die from overpopulation
+          }
+        } else { //currentCell is dead
+          if (totalNeighbours === 3){
+            boardCopy[i][j] = 1; //birth
+          }
+        }
+      }
+    }
+
+    board = boardCopy;
+    this.setState({
+      cellGrid: board
     });
   }
 
