@@ -25,11 +25,16 @@ class App extends Component {
 
   render() {
     return (
-      <div className="app">
-        <Board ref="board"/>
-        <div onClick={this.runGame} className="button button-run">Start</div>
-        <div onClick={this.pauseGame} className="button button-pause">Pause</div>
-        <div onClick={this.resetGame} className="button button-clear">Clear</div>
+      <div>
+      <h1><span className="red">L</span><span className="teal">I</span><span className="orange">F</span><span className="blue">E</span></h1>
+        <div className="app">
+          <Board ref="board"/>
+          <div className="button-container">
+            <div onClick={this.runGame} className="button button-run">Start</div>
+            <div onClick={this.pauseGame} className="button button-pause">Pause</div>
+            <div onClick={this.resetGame} className="button button-clear">Clear</div>
+          </div>
+        </div>
       </div>
     );
   }
