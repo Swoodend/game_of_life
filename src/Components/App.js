@@ -5,19 +5,27 @@ import "../../public/styles/App.css";
 class App extends Component {
 
   constructor(props){
-    super(props)
-    this.handleClick = this.handleClick.bind(this);
+    super(props);
+    this.runGame = this.runGame.bind(this);
+    this.pauseGame = this.pauseGame.bind(this);
   }
 
-  handleClick(){
-    this.refs.board.tick();
+  runGame(){
+    console.log('run game')
+    console.log(this.refs.board);
+    this.refs.board.startGame();
+  }
+
+  pauseGame(){
+    this.refs.board.pause();
   }
 
   render() {
     return (
       <div className="app">
         <Board ref="board"/>
-        <div onClick={this.handleClick} className="start-button">Start</div>
+        <div onClick={this.runGame} className="start-button">Start</div>
+        <div onClick={this.pauseGame} className="start-button">Pause</div>
       </div>
     );
   }
