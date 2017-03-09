@@ -14,6 +14,7 @@ class Board extends Component {
     this.run = this.run.bind(this);
     this.pause = this.pause.bind(this);
     this.startGame = this.startGame.bind(this);
+    this.clearBoard = this.clearBoard.bind(this);
     this.state = {
       cellGrid: [],
       numRowsCols: 50
@@ -48,6 +49,20 @@ class Board extends Component {
 
     this.setState({
       cellGrid: grid
+    });
+  }
+
+  clearBoard(){
+    console.log('cb was called');
+    let board = copyArr(this.state.cellGrid);
+    for (let i = 0; i < board.length; i++){
+      for (let j = 0; j < board[i].length; j++){
+        board[i][j] = 0;
+      }
+    }
+
+    this.setState({
+      cellGrid: board
     });
   }
 
