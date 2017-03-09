@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Board from './Board';
+import StartPauseButton from './StartPauseButton';
 import "../../public/styles/App.css";
 
 class App extends Component {
@@ -35,8 +36,7 @@ class App extends Component {
         <div className="app">
           <Board ref="board"/>
           <div className="button-container">
-            <div onClick={this.runGame} className="button button-run">Start</div>
-            <div onClick={this.pauseGame} className="button button-pause">Pause</div>
+            <StartPauseButton runGame={this.runGame} pauseGame={this.pauseGame}/>
             <div onClick={this.resetGame} className="button button-clear">Clear</div>
             <div onClick={this.newGame} className="button button-new">New</div>
           </div>
