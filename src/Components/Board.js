@@ -146,7 +146,7 @@ class Board extends Component {
               key={i+j}
               row={i}
               column={j}
-              style={{background: "pink"}}
+              style={{background: "black"}}
             />
           );
         } else {
