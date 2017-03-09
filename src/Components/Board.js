@@ -28,17 +28,19 @@ class Board extends Component {
   }
 
   changeColor(row, column){
-    let grid = this.state.cellGrid;
+    if ((row !== 0 && column !== 0) && (row !== this.state.numRowsCols -1 && column !== this.state.numRowsCols -1)){
+      let grid = this.state.cellGrid;
 
-    if (grid[row][column] === 1){
-      grid[row][column] = 0;
-    } else {
-      grid[row][column] = 1;
+      if (grid[row][column] === 1){
+        grid[row][column] = 0;
+      } else {
+        grid[row][column] = 1;
+      }
+
+      this.setState({
+        cellGrid: grid
+      });
     }
-
-    this.setState({
-      cellGrid: grid
-    });
   }
 
   setRandomState(){
