@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Cell from './Cell';
-import { getRandomState, copyArr } from '../helpers/boardlogic';
+import copyArr from '../helpers/boardlogic';
 
 var running = false;
 var loop;
@@ -15,20 +15,25 @@ class Board extends Component {
     this.pause = this.pause.bind(this);
     this.startGame = this.startGame.bind(this);
     this.state = {
-      cellGrid: []
+      cellGrid: [],
+      numRowsCols: 50
     };
   }
 
   componentWillMount(){
+    let board = [];
     for (let i = 0; i < 50; i++){
-      this.state.cellGrid.push([]);
+      board.push([]);
       for (let j = 0; j < 50; j++){
-        this.state.cellGrid[i].push(0)
+        if ((i !==0 && i!== this.state.numRowsCols - 1) && (j!==0 && j!== this.state.numRowsCols - 1)){ //the grid is 50x50
+          board[i].push(Math.random() > 0.85 ? 1 : 0);
+        } else {
+          board[i].push(0);
+        }
       }
     }
-    let randomState = getRandomState(this.state.cellGrid);
     this.setState({
-      cellGrid: randomState
+      cellGrid: board
     });
   }
 
