@@ -76,6 +76,10 @@ h1 {
   line-height: 35px;
 }
 
+.button:hover {
+  cursor: pointer;
+}
+
 .button-clear {
   background: #f44153
 }
@@ -86,6 +90,10 @@ h1 {
 
 .button-pause {
   background: #de873a;
+}
+
+.button-new {
+  background: #61bae4;
 }
 
 .button-container {
