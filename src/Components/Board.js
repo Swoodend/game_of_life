@@ -15,6 +15,7 @@ class Board extends Component {
     this.pause = this.pause.bind(this);
     this.startGame = this.startGame.bind(this);
     this.clearBoard = this.clearBoard.bind(this);
+    this.setRandomState = this.setRandomState.bind(this);
     this.state = {
       cellGrid: [],
       numRowsCols: 50,
@@ -23,20 +24,7 @@ class Board extends Component {
   }
 
   componentWillMount(){
-    let board = [];
-    for (let i = 0; i < 50; i++){
-      board.push([]);
-      for (let j = 0; j < 50; j++){
-        if ((i !==0 && i!== this.state.numRowsCols - 1) && (j!==0 && j!== this.state.numRowsCols - 1)){ //the grid is 50x50
-          board[i].push(Math.random() > 0.85 ? 1 : 0);
-        } else {
-          board[i].push(0);
-        }
-      }
-    }
-    this.setState({
-      cellGrid: board
-    });
+    this.setRandomState();
   }
 
   changeColor(row, column){
@@ -50,6 +38,24 @@ class Board extends Component {
 
     this.setState({
       cellGrid: grid
+    });
+  }
+
+  setRandomState(){
+    let board = [];
+    for (let i = 0; i < 50; i++){
+      board.push([]);
+      for (let j = 0; j < 50; j++){
+        if ((i !==0 && i!== this.state.numRowsCols - 1) && (j!==0 && j!== this.state.numRowsCols - 1)){ //the grid is 50x50
+          board[i].push(Math.random() > 0.85 ? 1 : 0);
+        } else {
+          board[i].push(0);
+        }
+      }
+    }
+    this.setState({
+      cellGrid: board,
+      generation: 0
     });
   }
 
