@@ -1,6 +1,48 @@
+#root {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-family: 'Francois One', Helvetica;
+  text-align: center;
+  letter-spacing: 40px;
+  font-size: 6em;
+  margin: 0 0 0 25px;
+
+}
+
+.red {
+  background: linear-gradient(#f44153 50%, white 50%);
+  background-size: 4px 4px;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+}
+
+.teal {
+  background: linear-gradient(#42f4d1 50%, white 50%);
+  background-size: 4px 4px;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+}
+
+.orange {
+  background: linear-gradient(#de873a 50%, white 50%);
+  background-size: 4px 4px;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+}
+
+.blue {
+  background: linear-gradient(#61bae4 50%, white 50%);
+  background-size: 4px 4px;
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+}
+
 .app {
-  height: 600px;
-  width: 600px;
+  height: 500px;
+  width: 500px;
   margin: 0 auto;
 }
 
@@ -27,11 +69,27 @@
 }
 
 .button {
-  background: lightgreen;
-  height: 50px;
+  height: 35px;
   width: 70px;
   color: white;
-  border-radius: 5px;
   text-align: center;
-  line-height: 50px;
+  line-height: 35px;
+}
+
+.button-clear {
+  background: #f44153
+}
+
+.button-run {
+  background: #50c448;
+}
+
+.button-pause {
+  background: #de873a;
+}
+
+.button-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
 }
