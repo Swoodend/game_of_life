@@ -12,8 +12,6 @@ class App extends Component {
   }
 
   runGame(){
-    console.log('run game')
-    console.log(this.refs.board);
     this.refs.board.startGame();
   }
 
@@ -29,9 +27,9 @@ class App extends Component {
     return (
       <div className="app">
         <Board ref="board"/>
-        <div onClick={this.runGame} className="start-button">Start</div>
-        <div onClick={this.pauseGame} className="start-button">Pause</div>
-        <div onClick={this.resetGame} className="start-button">Reset</div>
+        <div onClick={this.runGame} className="button button-run">Start</div>
+        <div onClick={this.pauseGame} className="button button-pause">Pause</div>
+        <div onClick={this.resetGame} className="button button-clear">Clear</div>
       </div>
     );
   }
