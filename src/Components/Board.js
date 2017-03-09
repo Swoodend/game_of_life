@@ -17,7 +17,8 @@ class Board extends Component {
     this.clearBoard = this.clearBoard.bind(this);
     this.state = {
       cellGrid: [],
-      numRowsCols: 50
+      numRowsCols: 50,
+      generation: 0
     };
   }
 
@@ -53,7 +54,6 @@ class Board extends Component {
   }
 
   clearBoard(){
-    console.log('cb was called');
     let board = copyArr(this.state.cellGrid);
     for (let i = 0; i < board.length; i++){
       for (let j = 0; j < board[i].length; j++){
@@ -62,12 +62,12 @@ class Board extends Component {
     }
 
     this.setState({
-      cellGrid: board
+      cellGrid: board,
+      generation: 0
     });
   }
 
   tick(){
-    console.log('called');
     let board = this.state.cellGrid;
     let boardCopy = copyArr(this.state.cellGrid);
 
@@ -112,7 +112,8 @@ class Board extends Component {
 
     board = boardCopy;
     this.setState({
-      cellGrid: board
+      cellGrid: board,
+      generation: this.state.generation + 1
     });
   }
 
@@ -124,7 +125,6 @@ class Board extends Component {
 
   startGame(){
     if (!running){
-      console.log('in here');
       this.run();
     }
   }
@@ -133,7 +133,6 @@ class Board extends Component {
     if (running){
       running = false;
       window.cancelAnimationFrame(loop);
-      console.log('running is now', running);
     }
   }
 
@@ -164,6 +163,7 @@ class Board extends Component {
     })
     return (
       <div className="board">
+        <div className="generation-count">GENERATION: {this.state.generation}</div>
         {cells}
       </div>
     );
