@@ -9,6 +9,7 @@ class App extends Component {
     this.runGame = this.runGame.bind(this);
     this.pauseGame = this.pauseGame.bind(this);
     this.resetGame = this.resetGame.bind(this);
+    this.newGame = this.newGame.bind(this);
   }
 
   runGame(){
@@ -23,6 +24,10 @@ class App extends Component {
     this.refs.board.clearBoard();
   }
 
+  newGame(){
+    this.refs.board.setRandomState();
+  }
+
   render() {
     return (
       <div>
@@ -33,6 +38,7 @@ class App extends Component {
             <div onClick={this.runGame} className="button button-run">Start</div>
             <div onClick={this.pauseGame} className="button button-pause">Pause</div>
             <div onClick={this.resetGame} className="button button-clear">Clear</div>
+            <div onClick={this.newGame} className="button button-new">New</div>
           </div>
         </div>
       </div>
